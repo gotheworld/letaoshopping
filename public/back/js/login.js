@@ -36,7 +36,6 @@ $(function () {
   }).on('success.form.bv', function (e) {
     e.preventDefault();
     var validator = $("#form").data('bootstrapValidator');
-    console.log(validator);
     $.ajax({
       type: 'post',
       url: '/employee/employeeLogin',
