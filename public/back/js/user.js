@@ -18,7 +18,7 @@ $(function () {
           size: "small",
           onPageClicked: function (event, originalEvent, type, page) {
             pagenum = page;
-            fn()
+            fn();
           }
         });
       }
