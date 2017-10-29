@@ -18,6 +18,9 @@
   left: 0;
   transition: all 1s;
 }
+.aside.now{
+  left:-180px;
+}
 .aside .brand a{
   height: 50px;
   line-height: 50px;
@@ -69,4 +72,25 @@ ul{
 }
 .list li>div>a{
   padding-left:80px;
+}
+.main{
+  margin-left:180px ;
+  transition: all 1s;
+}
+.main.now{
+  margin-left:0 ;
+}
+.lt_header{
+  height: 50px;
+  line-height: 50px;
+  background-color: #3c8dbc;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+.lt_header span{
+  color: #fff;
+  font-size:16px;
+}
+#logout_modal .modal-body p{
+  color: #a94442;
 }
