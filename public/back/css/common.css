@@ -94,3 +94,8 @@ ul{
 #logout_modal .modal-body p{
   color: #a94442;
 }
+.lt_content .pic_left,
+.lt_content .pic_right {
+  width: 45%;
+  height: 400px;
+}
