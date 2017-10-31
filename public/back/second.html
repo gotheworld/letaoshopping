@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>二级分类</title>
   <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
   <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
@@ -23,8 +23,8 @@
     <ul>
       <li><a href="user.html"><span class="glyphicon glyphicon-user"></span> 用户管理</a></li>
       <li>
-        <a href="javascript:;" class="category"><span class="glyphicon glyphicon-list"></span> 分类管理</a>
-        <div class="subnav" style="display: none">
+        <a href="javascript:;" class="category now"><span class="glyphicon glyphicon-list"></span> 分类管理</a>
+        <div class="subnav">
           <a href="first.html" class="first">一级分类</a>
           <a href="second.html" class="second">二级分类</a>
         </div>
@@ -47,11 +47,28 @@
       <!--bootstrap路径导航-->
       <ol class="breadcrumb">
         <li><a href="#">管理系统</a></li>
+        <li><a href="#">分类管理</a></li>
         <li class="active">二级分类</li>
       </ol>
       <div class="ad_content">
-        <div class="picTable"></div>
-        <div class="picTable"></div>
+        <button class='btn btn-default mb20 btn_add'>添加分类</button>
+        <table class="table table-bordered text-center">
+          <thead>
+          <tr>
+            <td width="10%">序号</td>
+            <td width="30%">一级分类名称</td>
+            <td width="30%">二级分类名称</td>
+            <td width="30%">二级分类Logo</td>
+          </tr>
+          </thead>
+          <tbody>
+          <!--模板渲染-->
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation" class="text-right">
+          <ul class="pagination">
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
@@ -77,11 +94,88 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<div class="modal fade" tabindex="-1" id="add_modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form">
+          <div class="form-group">
+            <div class="dropdown">
+              <span>一级分类：  </span>
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="true">
+                <span class="dropdown-text">请选择</span>
+                <input type="hidden" name="categoryId" id="categoryId">
+                <span class="caret"></span>
+              </button>
+              <!--一级分类隐藏域-->
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <!--模板渲染-->
+              </ul>
+            </div>
+          </div>
+          
+          <div class="form-group mt10">
+            
+            <input name="brandName" type="text" class="form-control" placeholder="请输入二级分类名称">
+          
+          </div>
+          
+          <div class="form-group">
+            <div class="pic_wrap">
+              <button class="btn btn-default">上传图片</button>
+              <input id="fileupload" type="file" name="pic1" data-url="/category/addSecondCategoryPic">
+            </div>
+          </div>
+          
+          <!--图片隐藏域-->
+          <div class="form-group">
+            <div class="img_box">
+              <img src="./images/none.png" alt="" width="100" height="100">
+            </div>
+            <input type="hidden" name="brandLogo" id="pic1">
+          </div>
+          <div class="form-group">
+            <input type="hidden" name="hot" value="1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit" class="btn btn-primary user_confirm" form="form">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/html" id="tpl">
+  {{each rows v i}}
+  <tr>
+    <td>{{(page-1)*size+i+1}}</td>
+    <td>{{v.categoryName}}</td>
+    <td>{{v.brandName}}</td>
+    <td><img width="50" height="30" src="{{v.brandLogo}}" alt=""></td>
+  </tr>
+  {{/each}}
+</script>
+<script type="text/html" id="tpl2">
+  {{each rows v i}}
+  <li><a href="#" data-id="{{v.id}}">{{v.categoryName}}</a></li>
+  {{/each}}
+</script>
 <script src="./lib/jquery/jquery.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
 <script src="./js/common.js"></script>
-<script src="./js/index.js"></script>
+<script src="./js/second.js"></script>
 </body>
 </html>

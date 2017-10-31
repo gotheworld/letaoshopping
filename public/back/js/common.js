@@ -37,6 +37,7 @@ if (location.href.indexOf('login.html') < 0) {
   icon_menu.on('click', function () {
     aside.toggleClass('now');
     main.toggleClass('now');
+    $('.lt_header').toggleClass('now');
   })
 })();
 //退出验证,模态框
