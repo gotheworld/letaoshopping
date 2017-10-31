@@ -1,15 +1,21 @@
-.mt150{
-  margin-top:150px;
+.mt150 {
+  margin-top: 150px;
 }
-.mt10{
-  margin-top:10px;
+
+.mt10 {
+  margin-top: 10px;
 }
-.mb10{
-  margin-bottom:10px;
+
+.mb10 {
+  margin-bottom: 10px;
 }
-.tc{
+.mb20{
+  margin-bottom: 20px;
+}
+.tc {
   text-align: center;
 }
+
 .aside {
   width: 180px;
   height: 100%;
@@ -18,10 +24,12 @@
   left: 0;
   transition: all 1s;
 }
-.aside.now{
-  left:-180px;
+
+.aside.now {
+  left: -180px;
 }
-.aside .brand a{
+
+.aside .brand a {
   height: 50px;
   line-height: 50px;
   color: #fff;
@@ -30,70 +38,86 @@
   display: block;
   background-color: #337ab7;
 }
-a:link,a:hover,a:visited,a:active{
+
+a:link, a:hover, a:visited, a:active {
   text-decoration: none;
 }
-.user{
-  padding:30px;
+
+.user {
+  padding: 30px;
 }
-.user img{
+
+.user img {
   display: block;
   width: 50px;
   height: 50px;
-  border-radius:50%;
-  margin:0 auto;
+  border-radius: 50%;
+  margin: 0 auto;
 }
-.user p{
+
+.user p {
   color: #fff;
   font-size: 16px;
   text-align: center;
   line-height: 40px;
   height: 40px;
 }
-ul{
-  margin:0;
-  padding:0;
-  list-style:none;
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-.list a{
+
+.list a {
   display: block;
-  height:40px;
-  line-height:40px;
+  height: 40px;
+  line-height: 40px;
   color: #ccc;
   padding-left: 30px;
   border: 3px solid transparent;
 }
-.list a.now{
+
+.list a.now {
   background-color: #1d1f21;
   border-left-color: #367fa9;
-  color: #fff;}
-.list li>a{
-  padding-left:50px;
+  color: #fff;
 }
-.list li>div>a{
-  padding-left:80px;
+
+.list li > a {
+  padding-left: 50px;
 }
-.main{
-  margin-left:180px ;
+
+.list li > div > a {
+  padding-left: 80px;
+}
+
+.main {
+  margin-left: 180px;
   transition: all 1s;
 }
-.main.now{
-  margin-left:0 ;
+
+.main.now {
+  margin-left: 0;
 }
-.lt_header{
+
+.lt_header {
   height: 50px;
   line-height: 50px;
   background-color: #3c8dbc;
   padding: 0 20px;
   margin-bottom: 20px;
 }
-.lt_header span{
+
+.lt_header span {
   color: #fff;
-  font-size:16px;
+  font-size: 16px;
 }
-#logout_modal .modal-body p{
+
+#logout_modal .modal-body p {
   color: #a94442;
 }
+
 .lt_content .pic_left,
 .lt_content .pic_right {
   width: 45%;

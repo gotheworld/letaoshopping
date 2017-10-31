@@ -26,6 +26,7 @@ if (location.href.indexOf('login.html') < 0) {
   var cate = $('.category')
   cate.on("click", function () {
     subnav.slideToggle();
+    // $(this).toggleClass('now')
   })
 })();
 //头部切换
