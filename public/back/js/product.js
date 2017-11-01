@@ -56,11 +56,18 @@ $(function () {
   })
   
   //图片上传
+  var imgArr = [];
   $('#fileupload').fileupload({
     dataType: 'json',
     done: function (e, data) {
-      // $('.img_box img').attr("src", data.result.picAddr);
-      $(".img_box").append('<img src="'+data.result.picAddr+'" width="100" height="100">');
+      $(".img_box").append('<img src="' + data.result.picAddr + '" width="100" height="100">');
+      imgArr.push(data.result)
+      if (imgArr.length === 3) {
+        $('#form').data('bootstrapValidator').updateStatus('brandLogo', 'VALID');
+      } else {
+        $('#form').data('bootstrapValidator').updateStatus('brandLogo', 'INVALID');
+      }
+      
     }
   });
   
@@ -99,9 +106,9 @@ $(function () {
           notEmpty: {
             message: '商品库存不能为空'
           },
-          regexp:{
-            regexp:/^[1-9]\d*$/,
-            message:"请输入一个大于0的库存"
+          regexp: {
+            regexp: /^[1-9]\d*$/,
+            message: "请输入一个大于0的库存"
           }
         }
       },
@@ -110,9 +117,9 @@ $(function () {
           notEmpty: {
             message: '商品尺码不能为空'
           },
-          regexp:{
-            regexp:/^\d{2}-\d{2}$/,
-            message:'请输入正确的尺寸'
+          regexp: {
+            regexp: /^\d{2}-\d{2}$/,
+            message: '请输入正确的尺寸'
           }
         }
       },
@@ -130,27 +137,33 @@ $(function () {
           }
         }
       },
+      brandLogo: {
+        validators: {
+          notEmpty: {
+            message: '请上传三张图片'
+          }
+        }
+      }
     }
   }).on('success.form.bv', function (e) {
     e.preventDefault();
     console.log($('#form').serialize());
-    // $.ajax({
-    //   type:"post",
-    //   url:"/category/addSecondCategory",
-    //   data:$('#form').serialize(),
-    //   success:function(data){
-    //     if(data.success){
-    //       $("#add_modal").modal("hide");
-    //       currentPage = 1;
-    //       render();
-    //       $('#form')[0].reset();
-    //       $('#form').data("bootstrapValidator").resetForm();
-    //       $(".dropdown-text").text("请选择一级分类");
-    //       $(".img_box img").attr("src", "images/none.png");
-    //     }
-    //   }
-    // })
-    
+    console.log(imgArr);
+    // var str = $('#form').serialize() +"&picName1="+ imgArr[0].picName+"picAddr"+imgArr[0].picName;
+    // str +=
+    // var str =$('#form').serialize() + imgArr[0].
+    $.ajax({
+      type:'post',
+      url:'/product/addProduct',
+      success:function(){
+        $('#add_modal').modal('hide');
+        $('.dropdown-text').text('请选择二级分类');
+        $('#form')[0].reset();
+        $('#form').data('bootstrapValidator').resetForm();
+        pagenum = 1;
+        render();
+      }
+    })
   });
   
   

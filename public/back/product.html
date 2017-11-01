@@ -50,7 +50,7 @@
         <li class="active">商品管理</li>
       </ol>
       <div class="ad_content">
-        <button class='btn btn-default mb20 btn_add'>添加分类</button>
+        <button class='btn btn-default mb20 btn_add'>添加产品</button>
         <table class="table table-bordered text-center">
           <thead>
           <tr>
@@ -141,7 +141,7 @@
           <div class="form-group">
             <div class="pic_wrap">
               <button class="btn btn-default">上传图片</button>
-              <input id="fileupload" type="file" name="pic1" data-url="/category/addSecondCategoryPic" multiple>
+              <input id="fileupload" type="file" name="pic1" data-url="/product/addProductPic" multiple>
             </div>
           </div>
   
@@ -149,7 +149,10 @@
           <div class="form-group">
             <div class="img_box">
             </div>
-            <input type="hidden" name="brandLogo" id="pic1">
+            <input type="hidden" name="brandLogo" id="pic1" value="1">
+          </div>
+          <div class="form-group">
+            <input type="hidden" name="statu" value="1">
           </div>
         </form>
       </div>
