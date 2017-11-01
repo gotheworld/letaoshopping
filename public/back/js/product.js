@@ -9,7 +9,6 @@ $(function () {
       url: '/product/queryProductDetailList',
       data: {page: pagenum, pageSize: pagesize},
       success: function (data) {
-        console.log(data)
         var html = template("tpl", data);
         $('tbody').html(html);
         $(".pagination").bootstrapPaginator({
@@ -147,14 +146,14 @@ $(function () {
     }
   }).on('success.form.bv', function (e) {
     e.preventDefault();
-    console.log($('#form').serialize());
-    console.log(imgArr);
-    // var str = $('#form').serialize() +"&picName1="+ imgArr[0].picName+"picAddr"+imgArr[0].picName;
-    // str +=
-    // var str =$('#form').serialize() + imgArr[0].
+    var str = $('#form').serialize() + "&picName1=" + imgArr[0].picName + "&picAddr1=" + imgArr[0].picAddr;
+    str += "&picName2=" + imgArr[1].picName + "&picAddr2=" + imgArr[1].picAddr;
+    str += "&picName3=" + imgArr[2].picName + "&picAddr3=" + imgArr[2].picAddr;
+    console.log(str);
     $.ajax({
       type:'post',
       url:'/product/addProduct',
+      data:str,
       success:function(){
         $('#add_modal').modal('hide');
         $('.dropdown-text').text('请选择二级分类');
