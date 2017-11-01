@@ -23,13 +23,13 @@
     <ul>
       <li><a href="user.html"><span class="glyphicon glyphicon-user"></span> 用户管理</a></li>
       <li>
-        <a href="javascript:;" class="category"><span class="glyphicon glyphicon-list"></span> 分类管理</a>
+        <a href="javascript:;" class="category now"><span class="glyphicon glyphicon-list"></span> 分类管理</a>
         <div class="subnav">
           <a href="first.html" class="first">一级分类</a>
           <a href="second.html" class="second">二级分类</a>
         </div>
       </li>
-      <li><a href="product.html" class="now"><span class="glyphicon glyphicon-tags"></span> 商品管理</a></li>
+      <li><a href="product.html"><span class="glyphicon glyphicon-tags"></span> 商品管理</a></li>
     </ul>
   </div>
 </div>
@@ -50,7 +50,7 @@
         <li class="active">商品管理</li>
       </ol>
       <div class="ad_content">
-        <button class='btn btn-default mb20 btn_add'>添加产品</button>
+        <button class='btn btn-default mb20 btn_add'>添加分类</button>
         <table class="table table-bordered text-center">
           <thead>
           <tr>
@@ -115,7 +115,7 @@
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <!--模板渲染-->
+              <!--模板渲染-->
               </ul>
             </div>
           </div>
@@ -137,26 +137,19 @@
           <div class="form-group">
             <input type="text" class="form-control" name="price" placeholder="请输入商品折扣价">
           </div>
-          
+  
           <div class="form-group">
             <div class="pic_wrap">
               <button class="btn btn-default">上传图片</button>
-              <input id="fileupload" type="file" name="pic1" data-url="/product/addProductPic" multiple>
-            
+              <input id="fileupload" type="file" name="pic1" data-url="/category/addSecondCategoryPic" multiple>
             </div>
           </div>
-<<<<<<< HEAD
-=======
-          <div></div>
->>>>>>> mobile
+  
           <!--图片隐藏域-->
           <div class="form-group">
             <div class="img_box">
             </div>
-            <input type="hidden" name="productLogo" id="pic1">
-            <input type="hidden" name="statu" value="1">
-          </div>
-          <div class="form-group">
+            <input type="hidden" name="productLogo" id="productLogo">
             <input type="hidden" name="statu" value="1">
           </div>
         </form>

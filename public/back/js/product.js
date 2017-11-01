@@ -9,6 +9,7 @@ $(function () {
       url: '/product/queryProductDetailList',
       data: {page: pagenum, pageSize: pagesize},
       success: function (data) {
+        console.log(data)
         var html = template("tpl", data);
         $('tbody').html(html);
         $(".pagination").bootstrapPaginator({
@@ -39,6 +40,7 @@ $(function () {
         pageSize: 100
       },
       success: function (data) {
+        console.log(data)
         $(".dropdown-menu").html(template("tpl2", data));
         
       }
@@ -54,34 +56,20 @@ $(function () {
   })
   
   //图片上传
-
-  var imgArr = [];
-  $('#fileupload').fileupload({
-    dataType: 'json',
-    done: function (e, data) {
-      $(".img_box").append('<img src="' + data.result.picAddr + '" width="100" height="100">');
-      imgArr.push(data.result)
-      if (imgArr.length === 3) {
-        $('#form').data('bootstrapValidator').updateStatus('brandLogo', 'VALID');
-      } else {
-        $('#form').data('bootstrapValidator').updateStatus('brandLogo', 'INVALID');
-      }
-
   var imgArray = [];
   $('#fileupload').fileupload({
     dataType: 'json',
     done: function (e, data) {
-      
-      $(".img_box").append('<img src="' + data.result.picAddr + '" width="100" height="100">');
+      $(".img_box").append('<img src="'+data.result.picAddr+'" width="100" height="100">');
       imgArray.push(data.result);
-      
       if (imgArray.length === 3) {
         $('#form').data("bootstrapValidator").updateStatus("productLogo", "VALID");
       } else {
         $('#form').data("bootstrapValidator").updateStatus("productLogo", "INVALID");
       }
-
+  
     }
+    
   });
   
   //表单验证
@@ -119,9 +107,9 @@ $(function () {
           notEmpty: {
             message: '商品库存不能为空'
           },
-          regexp: {
-            regexp: /^[1-9]\d*$/,
-            message: "请输入一个大于0的库存"
+          regexp:{
+            regexp:/^[1-9]\d*$/,
+            message:"请输入一个大于0的库存"
           }
         }
       },
@@ -130,9 +118,9 @@ $(function () {
           notEmpty: {
             message: '商品尺码不能为空'
           },
-          regexp: {
-            regexp: /^\d{2}-\d{2}$/,
-            message: '请输入正确的尺寸'
+          regexp:{
+            regexp:/^\d{2}-\d{2}$/,
+            message:'请输入正确的尺寸'
           }
         }
       },
@@ -150,43 +138,16 @@ $(function () {
           }
         }
       },
-      brandLogo: {
-        validators: {
-          notEmpty: {
-            message: '请上传三张图片'
-          }
-        }
-      }
-    }
-  }).on('success.form.bv', function (e) {
-    e.preventDefault();
-    var str = $('#form').serialize() + "&picName1=" + imgArr[0].picName + "&picAddr1=" + imgArr[0].picAddr;
-    str += "&picName2=" + imgArr[1].picName + "&picAddr2=" + imgArr[1].picAddr;
-    str += "&picName3=" + imgArr[2].picName + "&picAddr3=" + imgArr[2].picAddr;
-    console.log(str);
-    $.ajax({
-      type:'post',
-      url:'/product/addProduct',
-      data:str,
-      success:function(){
-        $('#add_modal').modal('hide');
-        $('.dropdown-text').text('请选择二级分类');
-        $('#form')[0].reset();
-        $('#form').data('bootstrapValidator').resetForm();
-        pagenum = 1;
-        render();
-      }
-    })
-
       productLogo: {
         validators: {
           notEmpty: {
-            message: '请上传3张照片'
+            message: '请上传3张图片'
           }
         }
       },
     }
   }).on('success.form.bv', function (e) {
+  
     e.preventDefault();
     var str = $('#form').serialize();
     str += "&picName1=" + imgArray[0].picName + "&picAddr1=" + imgArray[0].picAddr;
@@ -198,6 +159,7 @@ $(function () {
       url: "/product/addProduct",
       data: str,
       success: function (data) {
+        console.log(data);
         if (data.success) {
           $("#add_modal").modal("hide");
           currentPage = 1;
@@ -209,7 +171,8 @@ $(function () {
         }
       }
     })
-    
+  
+  
   });
   
   
