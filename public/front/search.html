@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>乐淘搜索</title>
+  <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+  <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/search.css">
+</head>
+<body>
+<div class="lt_container">
+  
+  <!--乐淘首页头部-->
+  <div class="lt_header">
+    <a href="javascript:history.go(-1);" class="icon_home"><span class="fa fa-chevron-left"></span></a>
+    <h3>乐淘搜索</h3>
+    <a href="search.html" class="icon_search"><span class="fa fa-search"></span></a>
+  </div>
+  
+  
+  <div class="lt_content">
+    
+    <div class="lt_search">
+      <input type="text" placeholder="请输入关键字">
+      <button class="mui-btn-blue">搜索</button>
+    </div>
+    
+    <div class="lt_history">
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll ">
+          <div class="search_header mui-clearfix">
+            <a href="#" class="mui-pull-left">搜索历史</a>
+            <a href="清空记录" class="mui-pull-right fa ">
+              <span class="fa-trash"></span>
+              清空记录
+            </a>
+          </div>
+          <ul>
+            <li><a href="#">女朋友</a></li>
+            <li><a href="#">呵呵</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>
+  
+  
+  <!--底部部分-->
+  <div class="lt_footer">
+    <ul class="mui-clearfix">
+      <li><a href="index.html"><span class="fa fa-home"></span>
+        <p>首页</p></a></li>
+      <li class="now"><a href="category.html"><span class="fa fa fa-bars"></span>
+        <p>分类</p></a></li>
+      <li><a href="#"><span class="fa fa fa-shopping-cart"></span>
+        <p>购物车</p></a></li>
+      <li><a href="#"><span class="fa fa fa-user"></span>
+        <p>会员中心</p></a></li>
+    </ul>
+  </div>
+</div>
+
+
+<script src="./lib/zepto/zepto.min.js"></script>
+<script src="./lib/mui/js/mui.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./js/search.js"></script>
+</body>
+</html>

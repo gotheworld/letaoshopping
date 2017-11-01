@@ -54,6 +54,7 @@ $(function () {
   })
   
   //图片上传
+
   var imgArr = [];
   $('#fileupload').fileupload({
     dataType: 'json',
@@ -65,7 +66,21 @@ $(function () {
       } else {
         $('#form').data('bootstrapValidator').updateStatus('brandLogo', 'INVALID');
       }
+
+  var imgArray = [];
+  $('#fileupload').fileupload({
+    dataType: 'json',
+    done: function (e, data) {
       
+      $(".img_box").append('<img src="' + data.result.picAddr + '" width="100" height="100">');
+      imgArray.push(data.result);
+      
+      if (imgArray.length === 3) {
+        $('#form').data("bootstrapValidator").updateStatus("productLogo", "VALID");
+      } else {
+        $('#form').data("bootstrapValidator").updateStatus("productLogo", "INVALID");
+      }
+
     }
   });
   
@@ -162,6 +177,39 @@ $(function () {
         render();
       }
     })
+
+      productLogo: {
+        validators: {
+          notEmpty: {
+            message: '请上传3张照片'
+          }
+        }
+      },
+    }
+  }).on('success.form.bv', function (e) {
+    e.preventDefault();
+    var str = $('#form').serialize();
+    str += "&picName1=" + imgArray[0].picName + "&picAddr1=" + imgArray[0].picAddr;
+    str += "&picName2=" + imgArray[1].picName + "&picAddr2=" + imgArray[1].picAddr;
+    str += "&picName3=" + imgArray[2].picName + "&picAddr3=" + imgArray[2].picAddr;
+    console.log(str)
+    $.ajax({
+      type: "post",
+      url: "/product/addProduct",
+      data: str,
+      success: function (data) {
+        if (data.success) {
+          $("#add_modal").modal("hide");
+          currentPage = 1;
+          render();
+          $('#form')[0].reset();
+          $('#form').data("bootstrapValidator").resetForm();
+          $(".dropdown-text").text("请选择一级分类");
+          $(".img_box img").attr("src", "images/none.png");
+        }
+      }
+    })
+    
   });
   
   
