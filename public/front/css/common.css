@@ -31,6 +31,7 @@ p{
   background-color: #069;
   text-align: center;
   max-width: 640px;
+  min-width: 320px;
   position: fixed;
   z-index: 999;
 }
@@ -75,6 +76,9 @@ p{
   float: left;
 }
 .lt_footer li.now a{
+  color: darkorange;
+}
+.lt_footer li.now p{
   color: darkorange;
 }
 .lt_footer a{
