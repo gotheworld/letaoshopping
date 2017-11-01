@@ -56,12 +56,20 @@ $(function () {
   })
   
   //图片上传
+  var imgArray = [];
   $('#fileupload').fileupload({
     dataType: 'json',
     done: function (e, data) {
-      // $('.img_box img').attr("src", data.result.picAddr);
       $(".img_box").append('<img src="'+data.result.picAddr+'" width="100" height="100">');
+      imgArray.push(data.result);
+      if (imgArray.length === 3) {
+        $('#form').data("bootstrapValidator").updateStatus("productLogo", "VALID");
+      } else {
+        $('#form').data("bootstrapValidator").updateStatus("productLogo", "INVALID");
+      }
+  
     }
+    
   });
   
   //表单验证
@@ -130,27 +138,40 @@ $(function () {
           }
         }
       },
+      productLogo: {
+        validators: {
+          notEmpty: {
+            message: '请上传3张图片'
+          }
+        }
+      },
     }
   }).on('success.form.bv', function (e) {
+  
     e.preventDefault();
-    console.log($('#form').serialize());
-    // $.ajax({
-    //   type:"post",
-    //   url:"/category/addSecondCategory",
-    //   data:$('#form').serialize(),
-    //   success:function(data){
-    //     if(data.success){
-    //       $("#add_modal").modal("hide");
-    //       currentPage = 1;
-    //       render();
-    //       $('#form')[0].reset();
-    //       $('#form').data("bootstrapValidator").resetForm();
-    //       $(".dropdown-text").text("请选择一级分类");
-    //       $(".img_box img").attr("src", "images/none.png");
-    //     }
-    //   }
-    // })
-    
+    var str = $('#form').serialize();
+    str += "&picName1=" + imgArray[0].picName + "&picAddr1=" + imgArray[0].picAddr;
+    str += "&picName2=" + imgArray[1].picName + "&picAddr2=" + imgArray[1].picAddr;
+    str += "&picName3=" + imgArray[2].picName + "&picAddr3=" + imgArray[2].picAddr;
+    console.log(str)
+    $.ajax({
+      type: "post",
+      url: "/product/addProduct",
+      data: str,
+      success: function (data) {
+        if (data.success) {
+          $("#add_modal").modal("hide");
+          currentPage = 1;
+          render();
+          $('#form')[0].reset();
+          $('#form').data("bootstrapValidator").resetForm();
+          $(".dropdown-text").text("请选择一级分类");
+          $(".img_box img").attr("src", "images/none.png");
+        }
+      }
+    })
+  
+  
   });
   
   
