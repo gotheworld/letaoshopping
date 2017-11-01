@@ -159,6 +159,7 @@ $(function () {
       url: "/product/addProduct",
       data: str,
       success: function (data) {
+        console.log(data);
         if (data.success) {
           $("#add_modal").modal("hide");
           currentPage = 1;
