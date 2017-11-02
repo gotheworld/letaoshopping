@@ -1,0 +1,42 @@
+.car_foot{
+  height: 55px;
+  max-width: 640px;
+  width: 100%;
+  background-color: #eee;
+  position: fixed;
+  bottom:0;
+  z-index: 999;
+  padding: 10px;
+  border-top: 1px solid #cccccc;
+}
+.car_foot>a{
+  font-size:14px;
+  display: inline-block;
+}
+.product_banner .mui-active{
+  background-color: #006699 !important;
+}
+.pro_info .item{
+  padding: 10px;
+  border-top:1px solid #cccccc;
+}
+.price_box span{
+  font-size: 20px;
+}
+.price_box .price{
+  color: red;
+}
+.price_box .old_price{
+  font-size: 14px;
+  text-decoration: line-through;
+}
+.size_box span{
+  font-size:12px;
+  padding:5px;
+  border: 1px solid #ccc;
+  line-height:32px;
+}
+.num_box span{
+  font-size:14px;
+  color: #666;
+}

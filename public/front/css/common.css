@@ -1,0 +1,145 @@
+html, body {
+  height: 100%;
+}
+
+/*初始化*/
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/*头部开始 */
+.lt_container {
+  width: 100%;
+  height: 100%;
+  max-width: 640px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding-top: 45px;
+  padding-bottom: 55px;
+  background-color: #fff;
+}
+
+.lt_header {
+  top: 0;
+  height: 45px;
+  width: 100%;
+  background-color: #069;
+  text-align: center;
+  max-width: 640px;
+  min-width: 320px;
+  position: fixed;
+  z-index: 999;
+}
+
+.lt_header a {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  top: 0;
+  line-height: 45px;
+  color: #fff;
+}
+
+.lt_header .icon_home {
+  left: 0;
+}
+
+.lt_header .icon_search {
+  right: 0;
+}
+
+.lt_header h3 {
+  margin: 0 45px;
+  line-height: 45px;
+  color: #fff;
+}
+
+/*头部结束*/
+
+/*产品部分开始*/
+.lt_product {
+  padding: 0 10px 10px 10px;
+}
+
+.lt_product a {
+  width: 48%;
+  border: 1px solid #ccc;
+  float: left;
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+  color: #666666;
+}
+
+.lt_product a:nth-child(odd) {
+  margin-right: 4%;
+}
+
+.lt_product img {
+  width: 100%;
+}
+
+.lt_product span:first-child {
+  color: red;
+}
+
+.lt_product span:last-child {
+  text-decoration: line-through;
+}
+
+/*产品部分结束*/
+
+
+/*内容部分*/
+.lt_content {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+}
+/*内容部分结束*/
+
+
+/*底部开始*/
+.lt_footer {
+  height: 55px;
+  max-width: 640px;
+  width: 100%;
+  background-color: #069;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+}
+
+.lt_footer li {
+  width: 25%;
+  float: left;
+}
+
+.lt_footer li.now a {
+  color: darkorange;
+}
+
+.lt_footer li.now p {
+  color: darkorange;
+}
+
+.lt_footer a {
+  padding-top: 8px;
+  height: 55px;
+  display: block;
+  color: #fff;
+  text-align: center;
+}
+
+.lt_footer p {
+  font-size: 12px;
+  color: #fff;
+}
