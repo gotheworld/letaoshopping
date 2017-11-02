@@ -16,28 +16,5 @@ img{
 /*导航部分结束*/
 
 /*产品部分开始*/
-.lt_product{
-  padding:10px;
-}
-.lt_product a{
-  width: 48%;
-  border: 1px solid #ccc;
-  float: left;
-  text-align: center;
-  padding: 10px;
-  margin-top: 10px;
-  color: #666666;
-}
-.lt_product a:nth-child(odd){
-  margin-right: 4%;
-}
-.lt_product img{
-  width: 100%;
-}
-.lt_product span:first-child{
-  color: red;
-}
-.lt_product span:last-child{
-  text-decoration: line-through;
-}
+
 /*产品部分结束*/
