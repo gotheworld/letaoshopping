@@ -10,10 +10,8 @@ $(function () {
     url: '/product/queryProductDetail',
     data: {id: id},
     success: function (data) {
-      console.log(data);
-      
+      //将尺寸切割成数组
       var arr = data.size.split('-');
-      console.log(arr)
       var sizeArr = [];
       for (var i = +arr[0]; i <= +arr[1]; i++) {
         sizeArr.push(i);
@@ -29,7 +27,38 @@ $(function () {
       });
       //数字输入框的初始化
       mui('.mui-numbox').numbox();
+      //span的点击事件
+      $('.size_box span').on('click',function () {
+        $(this).addClass('now').siblings().removeClass('now');
+      })
+     
     }
   })
-  
+  //立即购买
+  $('.btn_car').on('click',function(){
+    var size = $('.size_box span.now').html();
+    var num = $('.mui-numbox-input').val();
+    if(!size){
+      mui.toast('请选择尺码');
+      return
+    }
+    $.ajax({
+      type:'post',
+      url:"/cart/addCart",
+      data:{
+        productId:id,
+        size:size,
+        num:num
+      },
+      success:function (data) {
+        console.log(data);
+        if(data.success){
+          mui.toast('添加成功')
+        }
+        if(data.error === 400){
+          location.href = "login.html?retUrl="+location.href;
+        }
+      }
+    })
+  })
 })

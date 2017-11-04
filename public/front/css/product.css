@@ -36,6 +36,9 @@
   border: 1px solid #ccc;
   line-height:32px;
 }
+.size_box span.now{
+  background-color: #006699;
+}
 .num_box span{
   font-size:14px;
   color: #666;

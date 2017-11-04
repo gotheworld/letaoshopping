@@ -6,7 +6,7 @@ var scroll = mui('.mui-scroll-wrapper').scroll({
 
 $(function () {
   
-  var key = getParam('key')
+  var key = getParam('key');
   $('.search_text').val(key);
   var data = {
     price: "",
@@ -44,7 +44,7 @@ $(function () {
       return
     }
     //添加一个加载动画
-    $('.lt_product').html($('<div class="loading"></div>'))
+    $('.lt_product').html($('<div class="loading"></div>'));
     
     data.proName = key;
     
